@@ -100,7 +100,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Json5",
+						"referenceName": "Json6",
 						"type": "DatasetReference"
 					}
 				]
