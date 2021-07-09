@@ -1,0 +1,19 @@
+{
+	"name": "Json8",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore_srinidatalakestrgen01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureDataLakeStoreLocation",
+				"fileName": "Test_Json.json",
+				"folderPath": "PRC01"
+			}
+		},
+		"schema": {}
+	}
+}
