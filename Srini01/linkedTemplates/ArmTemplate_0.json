@@ -45,6 +45,42 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/CopyPipeline_amk')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Managed_Identity_AzureBlobStorage_srinilearningsession01')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"serviceEndpoint": "[parameters('Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint')]",
+					"accountKind": "StorageV2"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SriintegrationRuntime1')]",
 			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
 			"apiVersion": "2018-06-01",
@@ -65,31 +101,60 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Managed_Identity_AzureBlobStorage_srinilearningsession01')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/Json4')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "Json",
 				"typeProperties": {
-					"serviceEndpoint": "[parameters('Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint')]",
-					"accountKind": "StorageV2"
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Test_Json.json",
+						"container": "blob2-inc"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"color": {
+							"type": "string"
+						},
+						"value": {
+							"type": "string"
+						}
+					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw')]"
+			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw')]",
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStore_srinidatalakestrgen01')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "AzureDataLakeStore",
 				"typeProperties": {
-					"connectionString": "[parameters('AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString')]"
+					"dataLakeStoreUri": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri')]",
+					"tenant": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_tenant')]",
+					"subscriptionId": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_subscriptionId')]",
+					"resourceGroupName": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName')]"
+				},
+				"connectVia": {
+					"referenceName": "SriintegrationRuntime1",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/SriintegrationRuntime1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Blob2_AzureBlobStorage2')]",
@@ -127,62 +192,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/integrationRuntimes/SriintegrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStore_srinidatalakestrgen01')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDataLakeStore",
-				"typeProperties": {
-					"dataLakeStoreUri": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri')]",
-					"tenant": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_tenant')]",
-					"subscriptionId": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_subscriptionId')]",
-					"resourceGroupName": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName')]"
-				},
-				"connectVia": {
-					"referenceName": "SriintegrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/SriintegrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Json4')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "Test_Json.json",
-						"container": "blob2-inc"
-					}
-				},
-				"schema": {
-					"type": "object",
-					"properties": {
-						"color": {
-							"type": "string"
-						},
-						"value": {
-							"type": "string"
-						}
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw')]"
 			]
 		},
 		{
@@ -466,6 +475,53 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Json5')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStore_srinidatalakestrgen01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"fileName": "Test_Json.json",
+						"folderPath": "PRC01"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStore_srinidatalakestrgen01')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Json6')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStore_srinidatalakestrgen01",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureDataLakeStoreLocation",
+						"folderPath": "PRC01"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStore_srinidatalakestrgen01')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_amk')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -560,126 +616,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/SriAzureBlobStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Json5')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStore_srinidatalakestrgen01",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureDataLakeStoreLocation",
-						"fileName": "Test_Json.json",
-						"folderPath": "PRC01"
-					}
-				},
-				"schema": {}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStore_srinidatalakestrgen01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/CopyPipeline_amk')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy_amk",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [
-							{
-								"name": "Source",
-								"value": "sri01//sample3.json"
-							},
-							{
-								"name": "Destination",
-								"value": "blob2-inc//Test_Json.json"
-							}
-						],
-						"typeProperties": {
-							"source": {
-								"type": "JsonSource",
-								"storeSettings": {
-									"type": "AzureBlobStorageReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "JsonReadSettings"
-								}
-							},
-							"sink": {
-								"type": "JsonSink",
-								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
-								},
-								"formatSettings": {
-									"type": "JsonWriteSettings",
-									"filePattern": "setOfObjects"
-								}
-							},
-							"enableStaging": false,
-							"validateDataConsistency": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"mappings": [
-									{
-										"source": {
-											"path": "$['color']"
-										},
-										"sink": {
-											"path": "$['color']"
-										}
-									},
-									{
-										"source": {
-											"path": "$['value']"
-										},
-										"sink": {
-											"path": "$['value']"
-										}
-									}
-								]
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "SourceDataset_amk",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DestinationDataset_amk",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/SourceDataset_amk')]",
-				"[concat(variables('factoryId'), '/datasets/DestinationDataset_amk')]"
 			]
 		},
 		{
@@ -995,7 +931,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "Json5",
+								"referenceName": "Json6",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -1006,7 +942,8 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Json4')]",
-				"[concat(variables('factoryId'), '/datasets/Json5')]"
+				"[concat(variables('factoryId'), '/datasets/Json5')]",
+				"[concat(variables('factoryId'), '/datasets/Json6')]"
 			]
 		}
 	]

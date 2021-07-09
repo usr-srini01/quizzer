@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "Srini01"
 		},
+		"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw'"
+		},
 		"Blob2_AzureBlobStorage2_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Blob2_AzureBlobStorage2'"
@@ -14,14 +18,6 @@
 		"SriAzureBlobStorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SriAzureBlobStorage'"
-		},
-		"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw'"
-		},
-		"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
-			"type": "string",
-			"defaultValue": "https://srinilearningsession01.blob.core.windows.net"
 		},
 		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
@@ -38,6 +34,10 @@
 		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName": {
 			"type": "string",
 			"defaultValue": "Srini_01"
+		},
+		"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://srinilearningsession01.blob.core.windows.net"
 		},
 		"containerUri": {
 			"type": "string",

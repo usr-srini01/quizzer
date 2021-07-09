@@ -5,17 +5,14 @@
 		"factoryName": {
 			"value": "Srini01"
 		},
+		"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
+			"value": ""
+		},
 		"Blob2_AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
 		"SriAzureBlobStorage_connectionString": {
 			"value": ""
-		},
-		"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
-			"value": ""
-		},
-		"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
-			"value": "https://srinilearningsession01.blob.core.windows.net"
 		},
 		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri": {
 			"value": "https://srinidatalakestrgen01.azuredatalakestore.net/webhdfs/v1"
@@ -28,6 +25,9 @@
 		},
 		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName": {
 			"value": "Srini_01"
+		},
+		"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
+			"value": "https://srinilearningsession01.blob.core.windows.net"
 		}
 	}
 }
