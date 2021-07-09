@@ -1,0 +1,9 @@
+{
+	"name": "Srini01",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "eb2cb2ea-191d-46ee-936c-18f65062bd50",
+		"tenantId": "a0bf5544-f1a2-4a22-a159-d375eb6f8ea2"
+	}
+}

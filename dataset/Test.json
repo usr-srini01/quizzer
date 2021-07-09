@@ -1,0 +1,21 @@
+{
+	"name": "Test",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SriAzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Test",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Test.csv",
+				"container": "sri01"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
