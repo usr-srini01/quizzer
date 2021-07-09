@@ -7,14 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "Srini01"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureDataLakeStorage1gen2_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1gen2'"
-		},
 		"Blob2_AzureBlobStorage2_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'Blob2_AzureBlobStorage2'"
@@ -23,27 +15,27 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'SriAzureBlobStorage'"
 		},
-		"SriAzureBlobStorage2_connectionString": {
+		"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'SriAzureBlobStorage2'"
+			"metadata": "Secure string for 'connectionString' of 'AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw'"
 		},
-		"AzureDataLakeStorage1gen2_properties_typeProperties_url": {
+		"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
 			"type": "string",
-			"defaultValue": "https://sqlva3k6q7p5uzp5cw.dfs.core.windows.net"
+			"defaultValue": "https://srinilearningsession01.blob.core.windows.net"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri": {
 			"type": "string",
 			"defaultValue": "https://srinidatalakestrgen01.azuredatalakestore.net/webhdfs/v1"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_tenant": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_tenant": {
 			"type": "string",
 			"defaultValue": "a0bf5544-f1a2-4a22-a159-d375eb6f8ea2"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_subscriptionId": {
 			"type": "string",
 			"defaultValue": "ea6ea437-ddf9-45cc-b104-0a22f1c51a8d"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName": {
 			"type": "string",
 			"defaultValue": "Srini_01"
 		},
@@ -74,14 +66,8 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureBlobStorage1_connectionString": {
-						"value": "[parameters('AzureBlobStorage1_connectionString')]"
-					},
-					"AzureDataLakeStorage1gen2_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage1gen2_accountKey')]"
-					},
-					"SriAzureBlobStorage2_connectionString": {
-						"value": "[parameters('SriAzureBlobStorage2_connectionString')]"
+					"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
+						"value": "[parameters('AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString')]"
 					},
 					"Blob2_AzureBlobStorage2_connectionString": {
 						"value": "[parameters('Blob2_AzureBlobStorage2_connectionString')]"
@@ -89,20 +75,20 @@
 					"SriAzureBlobStorage_connectionString": {
 						"value": "[parameters('SriAzureBlobStorage_connectionString')]"
 					},
-					"AzureDataLakeStorage1gen2_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage1gen2_properties_typeProperties_url')]"
+					"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint')]"
 					},
-					"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
-						"value": "[parameters('AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri')]"
+					"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri": {
+						"value": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri')]"
 					},
-					"AzureDataLakeStore1_properties_typeProperties_tenant": {
-						"value": "[parameters('AzureDataLakeStore1_properties_typeProperties_tenant')]"
+					"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_tenant": {
+						"value": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_tenant')]"
 					},
-					"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
-						"value": "[parameters('AzureDataLakeStore1_properties_typeProperties_subscriptionId')]"
+					"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_subscriptionId": {
+						"value": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_subscriptionId')]"
 					},
-					"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
-						"value": "[parameters('AzureDataLakeStore1_properties_typeProperties_resourceGroupName')]"
+					"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName": {
+						"value": "[parameters('AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName')]"
 					}
 				}
 			},

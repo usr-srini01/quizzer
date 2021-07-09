@@ -5,34 +5,28 @@
 		"factoryName": {
 			"value": "Srini01"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"value": ""
-		},
-		"AzureDataLakeStorage1gen2_accountKey": {
-			"value": ""
-		},
 		"Blob2_AzureBlobStorage2_connectionString": {
 			"value": ""
 		},
 		"SriAzureBlobStorage_connectionString": {
 			"value": ""
 		},
-		"SriAzureBlobStorage2_connectionString": {
+		"AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw_connectionString": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1gen2_properties_typeProperties_url": {
-			"value": "https://sqlva3k6q7p5uzp5cw.dfs.core.windows.net"
+		"Managed_Identity_AzureBlobStorage_srinilearningsession01_properties_typeProperties_serviceEndpoint": {
+			"value": "https://srinilearningsession01.blob.core.windows.net"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_dataLakeStoreUri": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_dataLakeStoreUri": {
 			"value": "https://srinidatalakestrgen01.azuredatalakestore.net/webhdfs/v1"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_tenant": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_tenant": {
 			"value": "a0bf5544-f1a2-4a22-a159-d375eb6f8ea2"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_subscriptionId": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_subscriptionId": {
 			"value": "ea6ea437-ddf9-45cc-b104-0a22f1c51a8d"
 		},
-		"AzureDataLakeStore1_properties_typeProperties_resourceGroupName": {
+		"AzureDataLakeStore_srinidatalakestrgen01_properties_typeProperties_resourceGroupName": {
 			"value": "Srini_01"
 		}
 	}
