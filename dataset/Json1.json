@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "Test_DF.json",
+				"fileName": "sample1.json",
 				"container": "sri01"
 			}
 		},
