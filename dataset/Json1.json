@@ -2,7 +2,7 @@
 	"name": "Json1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SriAzureBlobStorage",
+			"referenceName": "Blob2_AzureBlobStorage2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "sample1.json",
-				"container": "sri01"
+				"fileName": "sri.json",
+				"container": "blob2-inc"
 			}
 		},
 		"schema": {
