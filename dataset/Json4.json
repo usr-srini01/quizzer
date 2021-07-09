@@ -1,0 +1,29 @@
+{
+	"name": "Json4",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AccessKey_AzureBlobStorage_sqlva3k6q7p5uzp5cw",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Test_Json.json",
+				"container": "blob2-inc"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"color": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
