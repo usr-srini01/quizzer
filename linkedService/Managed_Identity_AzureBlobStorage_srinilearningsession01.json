@@ -1,0 +1,11 @@
+{
+	"name": "Managed_Identity_AzureBlobStorage_srinilearningsession01",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://srinilearningsession01.blob.core.windows.net",
+			"accountKind": "StorageV2"
+		}
+	}
+}
