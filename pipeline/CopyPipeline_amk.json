@@ -1,0 +1,88 @@
+{
+	"name": "CopyPipeline_amk",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_amk",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "sri01//sample3.json"
+					},
+					{
+						"name": "Destination",
+						"value": "blob2-inc//Test_Json.json"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings",
+							"filePattern": "setOfObjects"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['color']"
+								},
+								"sink": {
+									"path": "$['color']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['value']"
+								},
+								"sink": {
+									"path": "$['value']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_amk",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_amk",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
