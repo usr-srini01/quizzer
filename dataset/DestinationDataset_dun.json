@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_dun",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "srinilearningsession01_AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Test_Json.json",
+				"container": "sri-blob-02"
+			}
+		},
+		"schema": {}
+	}
+}
