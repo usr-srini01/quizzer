@@ -1,0 +1,82 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Srini01"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/DF_BLB2BLB01_srinilearningsession01')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "Sample01_Json",
+								"type": "DatasetReference"
+							},
+							"name": "srcinjson01"
+						}
+					],
+					"sinks": [
+						{
+							"linkedService": {
+								"referenceName": "srinilearningsession01_AzureBlobStorage1",
+								"type": "LinkedServiceReference"
+							},
+							"name": "tgtJson"
+						}
+					],
+					"transformations": [],
+					"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tlimit: 100,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'singleDocument',\n\twildcardPaths:['sample1.json'],\n\tpartitionBy('hash', 1)) ~> srcinjson01\nsrcinjson01 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'json',\n\tcontainer: 'sri-blob-02',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> tgtJson"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Test_Out_Json02')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "srinilearningsession01_AzureBlobStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "Test02_Json.json",
+						"container": "sri-blob-02"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"fruit": {
+							"type": "string"
+						},
+						"size": {
+							"type": "string"
+						},
+						"color": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
