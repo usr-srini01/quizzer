@@ -1,0 +1,28 @@
+{
+	"name": "PL_DF_BLB2BLB01_srinilearningsession01",
+	"properties": {
+		"activities": [
+			{
+				"name": "DF_BLB2BLB01_srinilearningsession01",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
