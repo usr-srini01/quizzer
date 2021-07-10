@@ -3,7 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_dun",
+				"name": "CopyPipeline_Sample03_Json01",
+				"description": "Copy Jason file data from Sample3.json in sri01 blob to sri-blob-02 blob in srinilearningsession01 ",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
