@@ -14,6 +14,19 @@
 				"container": "sri-blob-02"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"fruit": {
+					"type": "string"
+				},
+				"size": {
+					"type": "string"
+				},
+				"color": {
+					"type": "string"
+				}
+			}
+		}
 	}
 }

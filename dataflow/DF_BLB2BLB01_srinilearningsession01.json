@@ -14,15 +14,15 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "Test_Out_Json02",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "srinilearningsession01_AzureBlobStorage1",
+						"type": "LinkedServiceReference"
 					},
 					"name": "tgtJson"
 				}
 			],
 			"transformations": [],
-			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'documentPerLine') ~> srcinjson01\nsrcinjson01 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> tgtJson"
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tlimit: 100,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'singleDocument',\n\twildcardPaths:['sample1.json'],\n\tpartitionBy('hash', 1)) ~> srcinjson01\nsrcinjson01 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tformat: 'json',\n\tcontainer: 'sri-blob-02',\n\tfolderPath: 'Test01._Json.json',\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> tgtJson"
 		}
 	}
 }
