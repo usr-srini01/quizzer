@@ -1,0 +1,29 @@
+{
+	"name": "SourceDataset_w83",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SriAzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sample3.json",
+				"container": "sri01"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"color": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
