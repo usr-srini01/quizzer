@@ -1,0 +1,28 @@
+{
+	"name": "DF_BLB2BLB01_srinilearningsession01",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Sample01_Json",
+						"type": "DatasetReference"
+					},
+					"name": "srcinjson01"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Test_Out_Json02",
+						"type": "DatasetReference"
+					},
+					"name": "tgtJson"
+				}
+			],
+			"transformations": [],
+			"script": "source(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'documentPerLine') ~> srcinjson01\nsrcinjson01 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> tgtJson"
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "Sample01_Json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "srinilearningsession01_AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "sample1.json",
+				"container": "sri01"
+			}
+		},
+		"schema": {}
+	}
+}
