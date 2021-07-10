@@ -1,0 +1,96 @@
+{
+	"name": "CopyPipeline_Sample03_Json01",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_dun",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "sri01//sample1.json"
+					},
+					{
+						"name": "Destination",
+						"value": "sri-blob-02//Test_Json.json"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings",
+							"filePattern": "setOfObjects"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['fruit']"
+								},
+								"sink": {
+									"path": "$['fruit']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['size']"
+								},
+								"sink": {
+									"path": "$['size']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['color']"
+								},
+								"sink": {
+									"path": "$['color']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_dun",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_dun",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
